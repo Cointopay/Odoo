@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="payment.payment_acquirer_cointopay" model="payment.acquirer">
+            <field name="name">Cointopay</field>
+            <field name="image" type="base64" file="payment_cointopay/static/src/img/cointopay_icon.png"/>
+            <field name="provider">cointopay</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="view_template_id" ref="cointopay_acquirer_button"/>
+            <field name="environment">test</field>
+            <field name="pre_msg">
+                <![CDATA[<p>You will be redirected to the Cointopay website after clicking on the payment button.</p>]]></field>
+            <field name="ctp_merchant_id">13659</field>
+            <field name="ctp_security_code">-1132003738</field>
+            <field name="ctp_coin_id">1</field>
+        </record>
+
+    </data>
+</odoo>

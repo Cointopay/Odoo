@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <template id="cointopay_acquirer_button">
+ 	    <form t-if="acquirer.ctp_merchant_id" t-att-action="tx_url" method="post" target="_self">
+            	<input type="hidden" name="MerchantID" t-att-value="MerchantID"/>
+            	<input type="hidden" name="Amount" t-att-value="Amount"/>
+            	<input type="hidden" name="inputCurrency" t-att-value="inputCurrency"/>
+           	<input type="hidden" name="CustomerReferenceNr" t-att-value="CustomerReferenceNr"/>
+            	<input type="hidden" name="SecurityCode" t-att-value="SecurityCode"/>
+            	<input type="hidden" name="AltCoinID" t-att-value="AltCoinID"/>
+            	<!-- URLs -->
+            	<input type='hidden' name='transactionconfirmurl' t-att-value="transactionconfirmurl"/>
+            	<input type='hidden' name='transactionfailurl' t-att-value="transactionfailurl"/>
+            	<input type='hidden' name='addreturnurl' t-att-value="addreturnurl"/>
+             	<!-- submit -->
+                <button type="submit" width="100px"
+                    t-att-class="submit_class">
+                    <img t-if="not submit_txt" src="/payment_cointopay/static/src/img/cointopay_icon.png"/>
+                    <span t-if="submit_txt"><t t-esc="submit_txt"/> <span class="fa fa-long-arrow-right"/></span>
+                </button>
+	    </form>
+        </template>
+    </data>
+</odoo>

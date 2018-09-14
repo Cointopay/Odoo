@@ -1,0 +1,64 @@
+nslation of Odoo Server.
+# This file contains the translation of the following modules:
+# * payment_cointopay
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-29 09:53+0000\n"
+"PO-Revision-Date: 2018-08-29 09:53+0000\n"
+"Language-Team: Afrikaans (https://www.transifex.com/odoo/teams/41243/af/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: af\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: payment_cointopay
+#: code:addons/payment_cointopay/models/payment.py:108
+#, python-format
+msgid "Cointopay: received data for reference %s; no order found"
+msgstr ""
+
+#. module: payment_cointopay
+#: code:addons/payment_cointopay/models/payment.py:111
+#, python-format
+msgid "Cointopay: received data for reference %s; multiple orders found"
+msgstr ""
+
+#. module: payment_cointopay
+#: model:ir.model,name:payment_cointopay.model_payment_acquirer
+msgid "Payment Acquirer"
+msgstr ""
+
+#. module: payment_cointopay
+#: model:ir.model,name:payment_cointopay.model_payment_transaction
+msgid "Payment Transaction"
+msgstr ""
+
+#. module: payment_cointopay
+#: model:ir.model.fields,field_description:payment_cointopay.field_payment_acquirer_ctp_merchant_id
+msgid "ctp_merchant_id"
+msgstr ""
+
+#. module: payment_cointopay
+#: model:ir.model.fields,field_description:payment_cointopay.field_payment_acquirer_ctp_security_code
+msgid "ctp_security_code"
+msgstr ""
+
+#. module: payment_cointopay
+#: model:ir.model.fields,field_description:payment_cointopay.field_payment_acquirer_ctp_coin_id
+msgid "ctp_coin_id"
+msgstr ""
+
+#. module: payment_cointopay
+#: model:ir.model.fields,field_description:payment_cointopay.field_payment_transaction_ctp_transaction_id
+msgid "ctp_transaction_id"
+msgstr ""
+
+#. module: payment_cointopay
+#: model:ir.model.fields,field_description:payment_cointopay.field_payment_transaction_ctp_confirm_code
+msgid "ctp_confirm_code"
+msgstr ""
+

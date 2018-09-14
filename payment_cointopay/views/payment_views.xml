@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="acquirer_form_cointopay" model="ir.ui.view">
+            <field name="name">acquirer.form.cointopay</field>
+            <field name="model">payment.acquirer</field>
+            <field name="inherit_id" ref="payment.acquirer_form"/>
+            <field name="arch" type="xml">
+                <xpath expr='//group[@name="acquirer"]' position='after'>
+                    <group attrs="{'invisible': [('provider', '!=', 'cointopay')]}">
+                        <field name="ctp_merchant_id"/>
+                        <field name="ctp_security_code" password="True"/>
+                        <field name="ctp_coin_id"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="transaction_form_cointopay" model="ir.ui.view">
+            <field name="name">acquirer.transaction.form.cointopay</field>
+            <field name="model">payment.transaction</field>
+            <field name="inherit_id" ref="payment.transaction_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='acquirer_reference']" position="after">
+                    <field name="ctp_transaction_id" readonly="1" attrs="{'invisible': [('provider', '!=', 'cointopay')]}"/>
+                    <field name="ctp_confirm_code" readonly="1" attrs="{'invisible': [('provider', '!=', 'cointopay')]}"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
