@@ -1,6 +1,6 @@
 # Cointopay Payment Gateway for Odoo
 # Requirements:
-	1) Odoo - 10
+	1) Odoo - 10 to 20 (see sub branches)
 	2) Python - 2.7
 
 ## Description
