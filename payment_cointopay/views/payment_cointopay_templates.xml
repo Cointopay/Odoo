@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        Redirect form for the Cointopay checkout.
+
+        Odoo 20 introduced the shared `payment.generic_redirect_form` template, but Odoo 16 to 19
+        expect each provider to ship its own redirect form. This template uses the standard
+        `api_url` / `url_params` rendering values and therefore works on Odoo 16 to 20.
+    -->
+    <template id="redirect_form">
+        <form t-att-action="api_url" method="post">
+            <t t-foreach="url_params" t-as="param">
+                <input type="hidden" t-att-name="param" t-att-value="url_params[param]"/>
+            </t>
+        </form>
+    </template>
+
+</odoo>

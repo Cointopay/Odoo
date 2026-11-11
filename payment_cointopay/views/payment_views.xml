@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="payment_provider_form" model="ir.ui.view">
+        <field name="name">Cointopay Provider Form</field>
+        <field name="model">payment.provider</field>
+        <field name="key">payment_cointopay.payment_provider_form</field>
+        <field name="inherit_id" ref="payment.payment_provider_form"/>
+        <field name="arch" type="xml">
+            <group name="provider_credentials" position="inside">
+                <!--
+                    The `invisible` expression syntax is only supported from Odoo 17 onward, and
+                    `attrs` was removed in Odoo 17. The fields are therefore always displayed so
+                    that the same view works on Odoo 16 to 20.
+                -->
+                <group string="Cointopay" colspan="2">
+                    <field name="ctp_merchant_id"/>
+                    <field name="ctp_security_code" password="True"/>
+                    <field name="ctp_coin_id"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+    <record id="payment_transaction_form_cointopay" model="ir.ui.view">
+        <field name="name">Cointopay Transaction Form</field>
+        <field name="model">payment.transaction</field>
+        <field name="key">payment_cointopay.payment_transaction_form_cointopay</field>
+        <field name="inherit_id" ref="payment.payment_transaction_form"/>
+        <field name="arch" type="xml">
+            <field name="provider_reference" position="after">
+                <field name="ctp_transaction_id" readonly="1"/>
+                <field name="ctp_confirm_code" readonly="1"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

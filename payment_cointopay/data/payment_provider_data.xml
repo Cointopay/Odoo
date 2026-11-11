@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <data noupdate="1">
-        <record id="payment_provider_cointopay" model="payment.provider">
-            <field name="name">Cointopay</field>
-            <field name="image_128" type="base64" file="payment_cointopay/static/src/img/cointopay_icon.png"/>
-            <field name="code">cointopay</field>
-            <field name="company_id" ref="base.main_company"/>
-            <field name="module_id" ref="base.module_payment_cointopay"/>
-            <field name="redirect_form_view_id" ref="payment_cointopay.cointopay_redirect_form"/>
-            <field name="payment_method_ids"
-                   eval="[Command.set([
-                         ref('payment_cointopay.payment_method_cointopay'),
-                         ref('payment.payment_method_bank_account')
-                     ])]"
-            />
-        </record>
-    </data>
+<odoo noupdate="1">
+
+    <record id="payment_provider_cointopay" model="payment.provider">
+        <field name="name">Cointopay</field>
+        <field name="code">cointopay</field>
+        <!--
+            Link the provider to this module. Without it, `module_state` is False and Odoo
+            refuses to uninstall the module when the provider owns an
+            `account.payment.method.line` ("You can't delete a payment method that is linked
+            to an installed provider.").
+        -->
+        <field name="module_id" ref="base.module_payment_cointopay"/>
+        <!-- `type="base64"` is required on Odoo 16 to 19; Odoo 20 still accepts it. -->
+        <field name="image_128" type="base64" file="payment_cointopay/static/description/icon.png"/>
+        <field name="redirect_form_view_id" ref="redirect_form"/>
+        <field name="pre_msg" type="html">
+            <p>You will be redirected to the Cointopay website to complete your payment.</p>
+        </field>
+    </record>
+
 </odoo>
